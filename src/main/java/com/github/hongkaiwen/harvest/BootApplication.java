@@ -1,6 +1,7 @@
 package com.github.hongkaiwen.harvest;
 
-import org.springframework.boot.SpringApplication;
+
+import com.github.hongkaiwen.harvest.processor.ProcessorEntry;
 
 /**
  * Created by hongkai on 2017/8/28.
@@ -8,7 +9,9 @@ import org.springframework.boot.SpringApplication;
 public class BootApplication {
 
     public static void main(String args[]){
-        SpringApplication.run(BootApplication.class, args);
+        ProcessorEntry.INSTANCE.run();
     }
+
+    
 
 }
