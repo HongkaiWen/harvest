@@ -1,6 +1,7 @@
 package com.github.hongkaiwen.harvest;
 
 import com.github.hongkaiwen.harvest.constants.CommonConstants;
+import com.github.hongkaiwen.harvest.util.HarvestFileUtils;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -15,7 +16,7 @@ public class MediaFilter implements FileFilter{
     public boolean accept(File file) {
         String suffix;
         try{
-            suffix = getSuffix(file);
+            suffix = HarvestFileUtils.getSuffix(file);
         } catch (Exception e){
             return false;
         }
@@ -24,10 +25,5 @@ public class MediaFilter implements FileFilter{
             return false;
         }
         return true;
-    }
-
-    private String getSuffix(File file){
-        String name = file.getName();
-        return name.substring(name.lastIndexOf(".") + 1, name.length()).toLowerCase();
     }
 }

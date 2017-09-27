@@ -12,10 +12,9 @@ import java.security.NoSuchAlgorithmException;
 
 public class Md5CaculateUtil {
 
-    public static String getHash(String fileName) throws IOException, NoSuchAlgorithmException{
+    public static String getHash(File target) throws IOException, NoSuchAlgorithmException{
 
-        File f = new File(fileName);
-        InputStream ins = new FileInputStream(f);
+        InputStream ins = new FileInputStream(target);
         
         byte[] buffer = new byte[8192];
         MessageDigest md5 = MessageDigest.getInstance("MD5");

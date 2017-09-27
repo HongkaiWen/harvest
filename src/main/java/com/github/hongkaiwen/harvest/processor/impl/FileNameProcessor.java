@@ -1,10 +1,10 @@
 package com.github.hongkaiwen.harvest.processor.impl;
 
 import com.github.hongkaiwen.harvest.context.ProcessorContext;
-import com.github.hongkaiwen.harvest.operate.Action;
-import com.github.hongkaiwen.harvest.operate.ActionType;
 import com.github.hongkaiwen.harvest.processor.Processor;
 import com.github.hongkaiwen.harvest.processor.ProcessorChain;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 
@@ -13,16 +13,17 @@ import java.io.File;
  */
 public class FileNameProcessor implements Processor {
 
+
+    private static final Logger logger = LoggerFactory.getLogger(FileNameProcessor.class);
+
     @Override
     public void process(ProcessorContext context, ProcessorChain chain) {
         File sourceFile = context.getSourceFile();
-        System.out.println(sourceFile.getName());
-
-        Action action = new Action();
-        action.setActionType(ActionType.COPY);
-
-        context.getActionList().add(action);
-
+        logger.info(String.format("file name : %s, check sum %s, create time %s",
+                sourceFile.getName(),
+                context.getFileInfo().getCheckSum(),
+                context.getFileInfo().getTackPhotoTime()
+        ));
         chain.doProcess(context);
     }
 }

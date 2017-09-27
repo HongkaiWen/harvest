@@ -1,6 +1,7 @@
 package com.github.hongkaiwen.harvest.context;
 
-import com.github.hongkaiwen.harvest.operate.Action;
+
+import com.github.hongkaiwen.harvest.action.Action;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ public class ProcessorContext {
 
     private List<Action> actionList;
 
+    private FileInfo fileInfo = new FileInfo();
+
     public File getSourceFile() {
         return sourceFile;
     }
@@ -34,5 +37,13 @@ public class ProcessorContext {
 
     public void setActionList(List<Action> actionList) {
         this.actionList = actionList;
+    }
+
+    public FileInfo getFileInfo() {
+        return fileInfo;
+    }
+
+    public void setFileInfo(FileInfo fileInfo) {
+        this.fileInfo = fileInfo;
     }
 }

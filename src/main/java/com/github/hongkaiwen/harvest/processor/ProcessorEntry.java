@@ -3,7 +3,9 @@ package com.github.hongkaiwen.harvest.processor;
 import com.github.hongkaiwen.harvest.MediaFilter;
 import com.github.hongkaiwen.harvest.constants.CommonConstants;
 import com.github.hongkaiwen.harvest.context.ProcessorContext;
+import com.github.hongkaiwen.harvest.processor.impl.FileCheckSumProcessor;
 import com.github.hongkaiwen.harvest.processor.impl.FileNameProcessor;
+import com.github.hongkaiwen.harvest.processor.impl.MediaCreateTimeProcessor;
 import com.github.hongkaiwen.harvest.service.FileService;
 
 import java.io.File;
@@ -18,6 +20,8 @@ public enum ProcessorEntry {
 
 
     private void init(){
+        ProcessorRegistry.INSTANCE.registry(new FileCheckSumProcessor());
+        ProcessorRegistry.INSTANCE.registry(new MediaCreateTimeProcessor());
         ProcessorRegistry.INSTANCE.registry(new FileNameProcessor());
         if(ProcessorRegistry.INSTANCE.getRegistry().size() == 0){
             throw new RuntimeException("no processor! nothing to do.");
