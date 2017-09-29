@@ -1,5 +1,7 @@
 package com.github.hongkaiwen.harvest.context;
 
+import com.github.hongkaiwen.harvest.constants.MediaType;
+
 import java.util.Date;
 
 /**
@@ -10,6 +12,8 @@ public class FileInfo {
     private String checkSum;
 
     private Date tackPhotoTime;
+
+    private MediaType mediaType;
 
     public String getCheckSum() {
         return checkSum;
@@ -25,5 +29,13 @@ public class FileInfo {
 
     public void setTackPhotoTime(Date tackPhotoTime) {
         this.tackPhotoTime = tackPhotoTime;
+    }
+
+    public MediaType getMediaType() {
+        return mediaType;
+    }
+
+    public void setMediaType(MediaType mediaType) {
+        this.mediaType = mediaType;
     }
 }

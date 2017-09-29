@@ -10,6 +10,6 @@ public class LastProcessorChain implements ProcessorChain {
     @Override
     public void doProcess(ProcessorContext context) {
         //do file move and backup ...
-
+        context.getActionList().forEach(action -> action.action());
     }
 }

@@ -58,6 +58,13 @@
             <version>2.10.1</version>
         </dependency>
         <!--exif-->
+        <!--apache common io-->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <!--apache common io-->
     </dependencies>
 
 </project>

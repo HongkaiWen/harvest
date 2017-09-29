@@ -16,6 +16,8 @@ public enum  ProcessorChainRegistry {
         return registry;
     }
 
+    public static final LastProcessorChain LAST_PROCESSOR_CHAIN = new LastProcessorChain();
+
     public void init(){
         List<Processor> registry = ProcessorRegistry.INSTANCE.getRegistry();
         if(registry == null || registry.size() == 0){
@@ -34,7 +36,7 @@ public enum  ProcessorChainRegistry {
         }
 
         DefaultProcessorChain last = (DefaultProcessorChain) this.registry.get(this.registry.size() -1);
-        last.setNextProcessorChain(new LastProcessorChain());
+        last.setNextProcessorChain(LAST_PROCESSOR_CHAIN);
         ProcessorChain preChain = last;
         if(this.registry.size() > 1){
             for(int i = this.registry.size() -2; i >=0; i--){

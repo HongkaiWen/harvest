@@ -20,7 +20,11 @@ public class DefaultProcessorChain implements ProcessorChain {
 
     public void doProcess(ProcessorContext context){
         if(nextProcessor != null){
-            nextProcessor.process(context, nextProcessorChain);
+            if(context.isSkipOtherProcessor()){
+                ProcessorChainRegistry.LAST_PROCESSOR_CHAIN.doProcess(context);
+            } else {
+                nextProcessor.process(context, nextProcessorChain);
+            }
         }
     }
 

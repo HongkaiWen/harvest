@@ -1,7 +1,5 @@
 package com.github.hongkaiwen.harvest.action;
 
-import com.github.hongkaiwen.harvest.action.Action;
-
 import java.io.File;
 
 /**

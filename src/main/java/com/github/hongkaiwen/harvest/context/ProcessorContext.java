@@ -21,6 +21,8 @@ public class ProcessorContext {
 
     private List<Action> actionList;
 
+    private boolean skipOtherProcessor;
+
     private FileInfo fileInfo = new FileInfo();
 
     public File getSourceFile() {
@@ -45,5 +47,13 @@ public class ProcessorContext {
 
     public void setFileInfo(FileInfo fileInfo) {
         this.fileInfo = fileInfo;
+    }
+
+    public boolean isSkipOtherProcessor() {
+        return skipOtherProcessor;
+    }
+
+    public void setSkipOtherProcessor(boolean skipOtherProcessor) {
+        this.skipOtherProcessor = skipOtherProcessor;
     }
 }
