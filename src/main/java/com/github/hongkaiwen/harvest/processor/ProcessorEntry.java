@@ -60,7 +60,7 @@ public enum ProcessorEntry {
                 processorChain.getProcessor().process(context, processorChain);
             });
 
-            logger.info("application finished");
+            logger.info(String.format("application finished, %d files added!", BootApplication.addFiles.get()));
         }finally {
             destroy();
         }
