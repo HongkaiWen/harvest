@@ -19,6 +19,8 @@ public interface FilePath {
     String VIDEOS = "/videos";
 
     String UNRECOGNIZED = "/unrecognized";
+    String UNRECOGNIZED_DATE = "/date";
+    String UNRECOGNIZED_CHECKSUM = "/checkSum";
 
     String REPOSITORY = "/repository";
 
@@ -47,9 +49,6 @@ public interface FilePath {
     }
 
     static String getPathByDate(Date tackPhotoTime){
-        if(tackPhotoTime == null){
-            return String.format("%s%s", UNRECOGNIZED, generateDateTimePath());
-        }
         SimpleDateFormat sf = new SimpleDateFormat("/yyyy/MM");
         return sf.format(tackPhotoTime);
     }

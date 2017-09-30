@@ -26,6 +26,7 @@ public enum ProcessorEntry {
         ProcessorRegistry.INSTANCE.registry(new FileCheckSumProcessor());
         ProcessorRegistry.INSTANCE.registry(new FileTypeProcessor());
         ProcessorRegistry.INSTANCE.registry(new MediaCreateTimeProcessor());
+        ProcessorRegistry.INSTANCE.registry(new UnrecognizedProcessor());
         ProcessorRegistry.INSTANCE.registry(new FileNameProcessor());
         ProcessorRegistry.INSTANCE.registry(new SourceFilesDuplicateCheckProcessor());
         ProcessorRegistry.INSTANCE.registry(new DuplicateByRepositoryCheckProcessor());
