@@ -26,7 +26,9 @@ public enum ProcessorEntry {
         ProcessorRegistry.INSTANCE.registry(new FileTypeProcessor());
         ProcessorRegistry.INSTANCE.registry(new MediaCreateTimeProcessor());
         ProcessorRegistry.INSTANCE.registry(new FileNameProcessor());
-        ProcessorRegistry.INSTANCE.registry(new DuplicateCheckProcessor());
+        ProcessorRegistry.INSTANCE.registry(new SourceFilesDuplicateCheckProcessor());
+        ProcessorRegistry.INSTANCE.registry(new DuplicateByRepositoryCheckProcessor());
+        ProcessorRegistry.INSTANCE.registry(new Move2RepositoryProcessor());
         if(ProcessorRegistry.INSTANCE.getRegistry().size() == 0){
             throw new RuntimeException("no processor! nothing to do.");
         }

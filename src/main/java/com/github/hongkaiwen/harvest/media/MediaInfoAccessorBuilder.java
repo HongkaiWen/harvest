@@ -16,6 +16,6 @@ public enum  MediaInfoAccessorBuilder {
         if("jpg".equals(suffix) || "jpeg".equals(suffix)){
             return new JpegInfoAccessor(mediaFile);
         }
-        return null;
+        return new VideoInfoAccessor(mediaFile);
     }
 }

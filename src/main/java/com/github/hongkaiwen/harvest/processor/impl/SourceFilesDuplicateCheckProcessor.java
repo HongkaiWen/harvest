@@ -1,6 +1,7 @@
 package com.github.hongkaiwen.harvest.processor.impl;
 
 import com.github.hongkaiwen.harvest.action.MoveAction;
+import com.github.hongkaiwen.harvest.constants.CommonConstants;
 import com.github.hongkaiwen.harvest.constants.FilePath;
 import com.github.hongkaiwen.harvest.context.ProcessorContext;
 import com.github.hongkaiwen.harvest.processor.Processor;
@@ -12,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by hongkai on 2017/9/29.
  */
-public class DuplicateCheckProcessor implements Processor {
+public class SourceFilesDuplicateCheckProcessor implements Processor {
 
     private static final ConcurrentHashMap mediaCheckSumHolders = new ConcurrentHashMap();
 
@@ -24,7 +25,7 @@ public class DuplicateCheckProcessor implements Processor {
         Object existValue = mediaCheckSumHolders.putIfAbsent(checkSum, value);
         if (existValue != null) {
             context.setSkipOtherProcessor(true);
-            MoveAction moveAction = new MoveAction(context.getSourceFile(), new File(String.format("%s%s%s", FilePath.ERROR,
+            MoveAction moveAction = new MoveAction(context.getSourceFile(), new File(String.format("%s%s%s%s", CommonConstants.REPOSITORY_ROOT, FilePath.ERROR,
                     FilePath.generateDateTimePath(), FilePath.ERROR_IGNORE)));
             context.getActionList().add(moveAction);
         }
@@ -33,6 +34,6 @@ public class DuplicateCheckProcessor implements Processor {
 
     @Override
     public void destroy() {
-        DuplicateCheckProcessor.mediaCheckSumHolders.clear();
+        SourceFilesDuplicateCheckProcessor.mediaCheckSumHolders.clear();
     }
 }

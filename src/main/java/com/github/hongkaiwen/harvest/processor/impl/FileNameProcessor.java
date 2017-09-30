@@ -19,10 +19,10 @@ public class FileNameProcessor implements Processor {
     @Override
     public void process(ProcessorContext context, ProcessorChain chain) {
         File sourceFile = context.getSourceFile();
-        logger.info(String.format("file name : %s, check sum %s, create time %s, type: %s",
+        logger.debug(String.format("file name : %s, check sum %s, create time %s, type: %s",
                 sourceFile.getName(),
                 context.getFileInfo().getCheckSum(),
-                context.getFileInfo().getTackPhotoTime(),
+                context.getFileInfo().getTakePhotoTime(),
                 context.getFileInfo().getMediaType()
         ));
         chain.doProcess(context);

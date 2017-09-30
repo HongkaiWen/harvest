@@ -16,7 +16,7 @@ public class MediaCreateTimeProcessor implements Processor {
     public void process(ProcessorContext context, ProcessorChain chain) {
         MediaInfoAccessor accessor = MediaInfoAccessorBuilder.INSTANCE.build(context.getSourceFile());
         if(accessor != null){
-            context.getFileInfo().setTackPhotoTime(accessor.createTime());
+            context.getFileInfo().setTakePhotoTime(accessor.createTime());
         }
         chain.doProcess(context);
     }

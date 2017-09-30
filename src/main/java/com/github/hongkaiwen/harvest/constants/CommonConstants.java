@@ -11,5 +11,5 @@ public interface CommonConstants {
 
     String STAGE = "e:/temp";
 
-    String REPOSITORY = "e:/media-center";
+    String REPOSITORY_ROOT = "e:/media-center";
 }

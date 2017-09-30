@@ -11,7 +11,7 @@ public class FileInfo {
 
     private String checkSum;
 
-    private Date tackPhotoTime;
+    private Date takePhotoTime;
 
     private MediaType mediaType;
 
@@ -23,12 +23,12 @@ public class FileInfo {
         this.checkSum = checkSum;
     }
 
-    public Date getTackPhotoTime() {
-        return tackPhotoTime;
+    public Date getTakePhotoTime() {
+        return takePhotoTime;
     }
 
-    public void setTackPhotoTime(Date tackPhotoTime) {
-        this.tackPhotoTime = tackPhotoTime;
+    public void setTakePhotoTime(Date takePhotoTime) {
+        this.takePhotoTime = takePhotoTime;
     }
 
     public MediaType getMediaType() {
