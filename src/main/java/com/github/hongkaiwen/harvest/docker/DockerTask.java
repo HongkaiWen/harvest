@@ -5,6 +5,8 @@ import com.github.hongkaiwen.harvest.action.Action;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 /**
  * Created by hongkai on 2017/9/30.
  */
@@ -12,15 +14,15 @@ public class DockerTask implements Runnable {
 
     private static final Logger logger = LoggerFactory.getLogger(DockerTask.class);
 
-    private Action[] actions;
+    private List<Action> actionList;
 
-    public DockerTask(Action... action) {
-        this.actions = action;
+    public DockerTask(List<Action> actionList) {
+        this.actionList = actionList;
     }
 
     @Override
     public void run() {
-        for (Action action : actions) {
+        for (Action action : actionList) {
             action.action();
         }
         long done = BootApplication.doneFiles.incrementAndGet();

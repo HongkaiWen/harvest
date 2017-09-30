@@ -11,8 +11,6 @@ public class LastProcessorChain implements ProcessorChain {
 
     @Override
     public void doProcess(ProcessorContext context) {
-        context.getActionList().forEach(action -> {
-            DockerPool.executor.execute(new DockerTask(action));
-        });
+        DockerPool.executor.execute(new DockerTask(context.getActionList()));
     }
 }

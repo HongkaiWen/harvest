@@ -9,7 +9,7 @@ public interface CommonConstants {
 
     String[] SUFFIX_VEDIO = {"mp4", "mov"};
 
-    String STAGE = "e:/temp";
+    String STAGE = "g:/stage";
 
-    String REPOSITORY_ROOT = "e:/media-center";
+    String REPOSITORY_ROOT = "g:/media-center";
 }
