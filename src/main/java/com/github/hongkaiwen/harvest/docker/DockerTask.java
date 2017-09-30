@@ -12,16 +12,18 @@ public class DockerTask implements Runnable {
 
     private static final Logger logger = LoggerFactory.getLogger(DockerTask.class);
 
-    private Action action;
+    private Action[] actions;
 
-    public DockerTask(Action action) {
-        this.action = action;
+    public DockerTask(Action... action) {
+        this.actions = action;
     }
 
     @Override
     public void run() {
-        action.action();
-        long done = BootApplication.doneTask.incrementAndGet();
-        logger.info(String.format("processing ... (%d/%d)", done, BootApplication.taskCount.get()));
+        for (Action action : actions) {
+            action.action();
+        }
+        long done = BootApplication.doneFiles.incrementAndGet();
+        logger.info(String.format("processing ... (%d/%d)", done, BootApplication.filesCount));
     }
 }

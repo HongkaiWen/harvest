@@ -1,5 +1,6 @@
 package com.github.hongkaiwen.harvest.processor;
 
+import com.github.hongkaiwen.harvest.BootApplication;
 import com.github.hongkaiwen.harvest.MediaFilter;
 import com.github.hongkaiwen.harvest.constants.CommonConstants;
 import com.github.hongkaiwen.harvest.context.ProcessorContext;
@@ -49,6 +50,8 @@ public enum ProcessorEntry {
             init();
 
             List<File> files = FileService.INSTANCE.listRecursive(new File(CommonConstants.STAGE), new MediaFilter());
+            BootApplication.filesCount = files.size();
+            logger.info(String.format("%d files to be moved", BootApplication.filesCount));
             List<ProcessorContext> contexts = files.stream().map(file -> new ProcessorContext(file)).collect(Collectors.toList());
             contexts.stream().parallel().forEach(context -> {
                 List<ProcessorChain> registry = ProcessorChainRegistry.INSTANCE.getRegistry();

@@ -13,9 +13,9 @@ public class BootApplication {
 
     public static final Date CURRENT_TIME = new Date();
 
-    public static AtomicLong taskCount = new AtomicLong(0);
+    public static int filesCount;
 
-    public static AtomicLong doneTask = new AtomicLong(0);
+    public static AtomicLong doneFiles = new AtomicLong(0);
 
     public static void main(String args[]){
         ProcessorEntry.INSTANCE.run();

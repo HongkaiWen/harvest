@@ -1,6 +1,5 @@
 package com.github.hongkaiwen.harvest.processor;
 
-import com.github.hongkaiwen.harvest.BootApplication;
 import com.github.hongkaiwen.harvest.context.ProcessorContext;
 import com.github.hongkaiwen.harvest.docker.DockerPool;
 import com.github.hongkaiwen.harvest.docker.DockerTask;
@@ -14,7 +13,6 @@ public class LastProcessorChain implements ProcessorChain {
     public void doProcess(ProcessorContext context) {
         context.getActionList().forEach(action -> {
             DockerPool.executor.execute(new DockerTask(action));
-            BootApplication.taskCount.incrementAndGet();
         });
     }
 }
